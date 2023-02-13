@@ -5,93 +5,84 @@
   transition: 0.4 ease-out;
   &-main {
     min-height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.346), rgba(0, 0, 0, 0.484));
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.346),
+      rgba(0, 0, 0, 0.484)
+    );
     padding: 25px;
-    &-box{
-        text-align: center;
-    width: 100%;
-    margin: 0 auto 75px;
-    display: flex;
-        &-search{
-            display:block; 
-            position: fixed;
-            width: 90vw;
-            padding: 15px;
-            
-            appearance: none;
-            background: none;
-            border: rgb(255, 218, 123) groove 1px;
-            outline: none;
-          
-            font-weight: bold;
-            background-color: rgba(50, 50, 70, 0.8);
-            border-radius: 0px 0px 16px 16px;
-            margin-top: -25px;
-            color: rgb(255, 255, 255);
-            font-size: 20px;
-            &::-webkit-input-placeholder{
-                padding-left: 3%;
-            color: rgb(216, 216, 216);
-            font-size: 3vh;
-            }
+    &-box {
+      text-align: center;
+      width: 100%;
+      margin: 0 auto 75px;
+      display: flex;
+      &-search {
+        display: block;
+        position: fixed;
+        width: 90vw;
+        padding: 15px;
+
+        appearance: none;
+        background: none;
+        border: rgb(255, 218, 123) groove 1px;
+        outline: none;
+
+        font-weight: bold;
+        background-color: rgba(50, 50, 70, 0.8);
+        border-radius: 0px 0px 16px 16px;
+        margin-top: -25px;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        &::-webkit-input-placeholder {
+          padding-left: 3%;
+          color: rgb(216, 216, 216);
+          font-size: 3vh;
         }
-        &-button {
-          max-width: 100%;
-          top:1vh;
-          position: fixed;
-          right: 10vw;
-          font-size: 3vw;
-          background-color: rgb(0, 0, 0);
-          border: rgb(255, 218, 123) groove 1px;
-          border-radius: 2px;
-          color: rgb(255, 255, 255);
-          height: 5vh;
-          width: 15%;
-        }
+      }
     }
-    &-result{
+    &-result {
       margin: auto;
-      &-localisation{
+      &-localisation {
         padding-top: 1%;
         margin: auto;
         overflow: hidden;
-        height:5vw;
+        height: 5vw;
         width: 50vw;
         max-width: 100%;
         max-height: 100%;
         background-color: rgba(50, 50, 70, 0.8);
         border-radius: 6px 6px 6px 6px;
-         color: #FFF;
-         text-align: center;
+        color: #fff;
+        text-align: center;
         font-size: 3vw;
         font-weight: 500;
         border: rgb(255, 218, 123) groove 1px;
-       text-shadow: 3px 3px 3px rgba(13, 13, 107, 0.624);
+        text-shadow: 3px 3px 3px rgba(13, 13, 107, 0.624);
       }
-       &-date{
+      &-date {
         margin: 5vh auto 3vh;
         font-weight: bold;
-        color:rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
         font-size: 5vw;
         font-style: italic;
         text-align: center;
         text-shadow: 3px 3px 3px rgba(50, 50, 70, 0.6);
-        &-logo{
+        &-logo {
           display: block;
           margin: auto;
           height: 8vw;
           width: 8vw;
           margin: 4vh auto;
           background-color: rgba(0, 0, 0, 0.165);
-        border-radius: 50%;
+          border-radius: 50%;
         }
-    }
-       &-temps{
+      }
+      &-temps {
         margin: auto;
         background-color: rgba(61, 61, 61, 0.8);
         border-radius: 12px;
         padding: 1vw;
-        color:#FFF;
+        color: #fff;
         width: 20vw;
         font-size: 10vw;
         font-weight: 900;
@@ -99,53 +90,52 @@
         text-align: center;
         border: rgb(255, 218, 123) groove 1px;
         box-shadow: 3px 6px rgba(3, 34, 118, 0.519);
-        &-C{
-            color:#FFF;
-            font-size: 10vw;
-            font-weight: 700;
+        &-C {
+          color: #fff;
+          font-size: 10vw;
+          font-weight: 700;
         }
-        &-description{
-            color: #FFF;
-            font-size: 3vw;
+        &-description {
+          color: #fff;
+          font-size: 3vw;
         }
-       }
       }
     }
-  &-rain{
+  }
+  &-rain {
     background-image: url('./assets/rain.avif');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
-  &-bleu{
+  &-bleu {
     background-image: url('./assets/sunny.avif');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
-  &-thunder{
+  &-thunder {
     background-image: url('./assets/thunder.jpg');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
-  &-drizz{
+  &-drizz {
     background-image: url('./assets/drizzle.jpg');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
-  &-neige{
+  &-neige {
     background-image: url('./assets/snow.jpg');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
-  &-nuage{
+  &-nuage {
     background-image: url('./assets/cloud.jpg');
     background-size: cover;
-  background-position: bottom;
-  transition: 0.4 ease-out;
+    background-position: bottom;
+    transition: 0.4 ease-out;
   }
 }
-
