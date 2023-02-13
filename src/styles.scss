@@ -1,5 +1,5 @@
 .app {
-  background-image: url('./assets/cloud.jpg');
+  background-image: url('./assets/neutralsky.avif');
   background-size: cover;
   background-position: bottom;
   transition: 0.4 ease-out;
@@ -13,12 +13,13 @@
     margin: 0 auto 75px;
         &-search{
             display:block; 
-            width: 100%;
+            position: fixed;
+            width: 90vw;
             padding: 15px;
-          
+            
             appearance: none;
             background: none;
-            border: none;
+            border: rgb(255, 218, 123) groove 1px;
             outline: none;
           
             font-weight: bold;
@@ -35,52 +36,58 @@
         }
     }
     &-result{
-      max-width: 100%;
-      min-height: 100%;
+      margin: auto;
       &-localisation{
-        height:5vh;
-        width: 15vw;
+        padding-top: 1%;
+        margin: auto;
+        overflow: hidden;
+        height:5vw;
+        width: 50vw;
+        max-width: 100%;
+        max-height: 100%;
         background-color: rgba(50, 50, 70, 0.8);
         border-radius: 6px 6px 6px 6px;
-        margin-bottom: 4vh ;
-        margin-inline: 40vw;
-    color: #FFF;
-    font-size: 3vh;
-    font-weight: 500;
-    text-align: center;
-    text-shadow: 3px 3px 3px rgba(13, 13, 107, 0.624);
+         color: #FFF;
+         text-align: center;
+        font-size: 3vw;
+        font-weight: 500;
+        border: rgb(255, 218, 123) groove 1px;
+       text-shadow: 3px 3px 3px rgba(13, 13, 107, 0.624);
       }
        &-date{
+        margin: 5vh auto 3vh;
         font-weight: bold;
         color:rgb(255, 255, 255);
-        font-size: 5vh;
+        font-size: 5vw;
         font-style: italic;
         text-align: center;
         text-shadow: 3px 3px 3px rgba(50, 50, 70, 0.6);
         &-logo{
           display: block;
           margin: auto;
-          height: 80px;
-          width: 80px;
-          margin-top: 2vh;
+          height: 8vw;
+          width: 8vw;
+          margin: 4vh auto;
           background-color: rgba(0, 0, 0, 0.165);
         border-radius: 50%;
         }
     }
        &-temps{
-        margin: 10vh 35vw;
+        margin: auto;
         background-color: rgba(61, 61, 61, 0.8);
-        border-radius: 16px;
-        padding: 15px 25px;
+        border-radius: 12px;
+        padding: 1vw;
         color:#FFF;
-        font-size: 102px;
+        width: 20vw;
+        font-size: 10vw;
         font-weight: 900;
         text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
         text-align: center;
+        border: rgb(255, 218, 123) groove 1px;
         box-shadow: 3px 6px rgba(3, 34, 118, 0.519);
         &-C{
             color:#FFF;
-            font-size: 48px;
+            font-size: 10vw;
             font-weight: 700;
         }
         &-description{
@@ -97,7 +104,7 @@
   transition: 0.4 ease-out;
   }
   &-bleu{
-    background-image: url('./assets/warm.jpg');
+    background-image: url('./assets/sunny.avif');
     background-size: cover;
   background-position: bottom;
   transition: 0.4 ease-out;
@@ -127,3 +134,4 @@
   transition: 0.4 ease-out;
   }
 }
+

@@ -34,6 +34,8 @@ function App() {
       };
     }
 
+
+    
 //Récuperer la date du jour et returner une date lisible
 const donneDate = (d)=>{
   let mois = ["Janvier", "Février", "Mars", "Avril", 
@@ -52,8 +54,8 @@ const donneDate = (d)=>{
 const event = new Date();
 const heure = event.toLocaleTimeString('fr-FR');
 //heure simple:
-const heureEnInt = event.getHours();
-const darkness = function(){
+const Int = event.getHours();
+const darkness = function(heureEnInt){
 if (heureEnInt >= 20 || heureEnInt < 8){
   return true;
 }
@@ -85,8 +87,8 @@ else if(heureEnInt >= 8 && heureEnInt <= 20){
           </div>
           <div className="app-main-result-date">{donneDate(new Date())}</div>
           <div className="app-main-result-date">{heure}</div>
-          <img alt={(darkness === true)? "Cette icône indique qu'il fait nuit" : "Cette icône indique qu'il fait jour"} 
-          src={(darkness === true) ? logojour : logonuit} 
+          <img alt={(darkness(Int) === true)? "Cette icône indique qu'il fait nuit" : "Cette icône indique qu'il fait jour"} 
+          src={(darkness(Int) === true) ? logonuit : logojour} 
           className="app-main-result-date-logo"/>
         </div>
         <div className="app-main-result-temps">
