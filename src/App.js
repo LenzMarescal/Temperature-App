@@ -1,12 +1,20 @@
+//dépendences
 import axios from 'axios';
 import React, { useState } from 'react';
-
+//Stylesheets
+import './styles.scss';
+//images
+import logonuit from './assets/lune.png';
+import logojour from './assets/day.png';
 
 function App() {
+  //states:
   const [query, setQuery] = useState('');
-  const [weather, setWeather] = useState('');
-
-  const search = evt => {
+  const [meteo, setMeteo] = useState('');
+  const [apparence,setApparence]= useState('');
+  
+  //Axios requests
+  const AppelAPI = evt => {
     if (evt.key === "Enter") {
       axios({
         method: 'get',
@@ -15,7 +23,8 @@ function App() {
     })
     .then(function (reponse) {
         //On traite la suite une fois la réponse obtenue 
-        setWeather(reponse.data.main.temp)
+        setMeteo(reponse.data.main.temp);
+        setApparence(reponse.data.weather[0].main);
         console.log(reponse);
     })
     .catch(function (erreur) {
@@ -25,48 +34,68 @@ function App() {
       };
     }
 
+//Récuperer la date du jour et returner une date lisible
+const donneDate = (d)=>{
+  let mois = ["Janvier", "Février", "Mars", "Avril", 
+  "Mai", "Juin", "Juillet", "Août", "Septembre", "Novembre","Decembre"];
+  let jours = ["Dimanche", "Lundi", "Mardi", "Mercredi", 
+  "Jeudi", "Vendredi", "Samedi"];
 
-const dateBuilder = (d)=>{
-  let months = ["December", "January", "February", "March", "April", 
-  "May", "June", "July", "August", "September", "November"];
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", 
-  "Thursday", "Friday", "Saturday"];
-
-  let day = days[d.getDay()];
+  let jour = jours[d.getDay()];
   let date = d.getDate();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
-
-  return `${day}  ${date} ${month} ${year}`;
-
+  let month = mois[d.getMonth()];
+  let annee = d.getFullYear();
+  return `${jour}  ${date} ${month} ${annee}`;
 }
 
+//heure française:
+const event = new Date();
+const heure = event.toLocaleTimeString('fr-FR');
+//heure simple:
+const heureEnInt = event.getHours();
+const darkness = function(){
+if (heureEnInt >= 20 || heureEnInt < 8){
+  return true;
+}
+else if(heureEnInt >= 8 && heureEnInt <= 20){
+  return false;
+ }
+}
   return (
-    <div className={(typeof weather != "undefined") ? ((weather > 15) ? 'app warm' : 'app') : 'app'}>
-      <main>
-        <div className="search-box">
+    <div className= {(typeof apparence != "undefined") ? 
+    ((apparence === "Rain") ? 'app-rain' : (apparence === "Clear") ?
+    'app-bleu' : (apparence === "Thunderstorm") ? 
+    'app-thunder' : (apparence === "Drizzle") ? 
+    'app-drizz' : (apparence === "Snow") ? 
+    'app-neige' : (apparence === "Clouds") ? 
+    'app-nuage' : 'app') : 'app'}>
+      <main className='app-main'>
+        <div className='app-main-box'>
           <input type="text" 
-            className="search-bar"
-             placeholder="Entrez un code postal"
+            className='app-main-box-search'
+             placeholder="Entrez un code postal: _ _ _ _ _"
              onChange={e => setQuery(e.target.value)}
              value={query}
-             onKeyPress={search}
+             onKeyPress={AppelAPI}
              />
         </div>  
-        <div className="location-box">
-          <div className="location">
-            {query}
+        <div className='app-main-result'>
+          <div className="app-main-result-localisation">
+            Votre recherche : {query}
           </div>
-          <div className="date">{dateBuilder(new Date())}</div>
+          <div className="app-main-result-date">{donneDate(new Date())}</div>
+          <div className="app-main-result-date">{heure}</div>
+          <img alt={(darkness === true)? "Cette icône indique qu'il fait nuit" : "Cette icône indique qu'il fait jour"} 
+          src={(darkness === true) ? logojour : logonuit} 
+          className="app-main-result-date-logo"/>
         </div>
-        <div className="weather-box">
-          <div className="temp">
-            {Math.round(weather)} °C
+        <div className="app-main-result-temps">
+          <div className="app-main-result-temps-C">
+            {Math.round(meteo)} °C
           </div>
+          <div className='app-main-result-temps-description'>The sky is : {apparence}</div>
         </div>
       </main>
-             
-
     </div>
   );
 }
