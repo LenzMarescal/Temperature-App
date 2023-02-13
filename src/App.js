@@ -14,7 +14,8 @@ function App() {
   const [apparence,setApparence]= useState('');
   
   //Axios requests
-  const AppelAPI = () => {
+  const AppelAPI = evt => {
+    if (evt.key === "Enter") {
       axios({
         method: 'get',
         url: `https://api.openweathermap.org/data/2.5/weather?zip=${query},fr&appid=65d8db7f5c7724e70536eda38b247eae&units=metric`,
@@ -31,6 +32,7 @@ function App() {
         console.log(erreur);
     });
       };
+    }
 
 
     
@@ -61,12 +63,11 @@ else if(heureEnInt >= 8 && heureEnInt <= 20){
   return false;
  }
 }
-//onKeyPress={AppelAPI}
   return (
     <div className= {(typeof apparence != "undefined") ? 
     ((apparence === "Rain") ? 'app-rain' : (apparence === "Clear") ?
     'app-bleu' : (apparence === "Thunderstorm") ? 
-    'app-thunder' : (apparence === "Drizzle" || apparence === "Mist") ? 
+    'app-thunder' : (apparence === "Drizzle") ? 
     'app-drizz' : (apparence === "Snow") ? 
     'app-neige' : (apparence === "Clouds") ? 
     'app-nuage' : 'app') : 'app'}>
@@ -77,8 +78,8 @@ else if(heureEnInt >= 8 && heureEnInt <= 20){
              placeholder="Entrez un code postal: _ _ _ _ _"
              onChange={e => setQuery(e.target.value)}
              value={query}
+             onKeyPress={AppelAPI}
              />
-             <button onClick={AppelAPI} className='app-main-box-button'>Recherche</button>
         </div>  
         <div className='app-main-result'>
           <div className="app-main-result-localisation">
