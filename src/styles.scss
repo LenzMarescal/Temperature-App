@@ -11,6 +11,7 @@
         text-align: center;
     width: 100%;
     margin: 0 auto 75px;
+    display: flex;
         &-search{
             display:block; 
             position: fixed;
@@ -33,6 +34,19 @@
             color: rgb(216, 216, 216);
             font-size: 3vh;
             }
+        }
+        &-button {
+          max-width: 100%;
+          top:1vh;
+          position: fixed;
+          right: 10vw;
+          font-size: 3vw;
+          background-color: rgb(0, 0, 0);
+          border: rgb(255, 218, 123) groove 1px;
+          border-radius: 2px;
+          color: rgb(255, 255, 255);
+          height: 5vh;
+          width: 15%;
         }
     }
     &-result{
