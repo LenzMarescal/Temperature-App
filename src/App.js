@@ -26,7 +26,6 @@ function App() {
     }
 
 
-
 const dateBuilder = (d)=>{
   let months = ["December", "January", "February", "March", "April", 
   "May", "June", "July", "August", "September", "November"];
@@ -43,7 +42,7 @@ const dateBuilder = (d)=>{
 }
 
   return (
-    <div className="app">
+    <div className={(typeof weather != "undefined") ? ((weather > 15) ? 'app warm' : 'app') : 'app'}>
       <main>
         <div className="search-box">
           <input type="text" 
@@ -62,7 +61,7 @@ const dateBuilder = (d)=>{
         </div>
         <div className="weather-box">
           <div className="temp">
-            {weather} °C
+            {Math.round(weather)} °C
           </div>
         </div>
       </main>
